@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ruben D. Salazar Inc. | Architectural Precision & Premium Engineering</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#132778",
+                        "primary-light": "#2E3F8F",
+                        "accent": "#B9C3FF",
+                        "surface": "#F7F9FF",
+                        "on-surface": "#181C20",
+                        "on-surface-variant": "#454651",
+                    },
+                    fontFamily: {
+                        "headline": ["Work Sans"],
+                        "body": ["Inter"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-card {
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .glass-dark {
+                background: rgba(19, 39, 120, 0.85);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .blue-gradient {
+                background: linear-gradient(135deg, #132778 0%, #2E3F8F 100%);
+            }
+            .reveal-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .reveal-on-scroll.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .text-shadow-premium {
+                text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            .stagger-1 { transition-delay: 100ms; }
+            .stagger-2 { transition-delay: 200ms; }
+            .stagger-3 { transition-delay: 300ms; }
+            .stagger-4 { transition-delay: 400ms; }
+        }
+
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #132778;
+            transition: width 0.3s ease;
+        }
+        .nav-link-hover:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-screen-2xl z-50 glass-card rounded-2xl shadow-2xl transition-all duration-500">
+        <div class="flex justify-between items-center px-8 lg:px-12 h-20">
+            <div class="flex items-center gap-4">
+                <img alt="Ruben D. Salazar Inc. Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uh9xnY3hsMylpPPPfpmMcxjTw5H4L6-Uqt5sqco34s9HDKPowl0scJMWPy1frPxwcYdZGfhivscgpSUcD0hkKZ5grDLJA_93EFy_wPfd-pn3u3UCUy229KmWbuc24SLG0B8QC1aIgjy5H3kQag8r14dKdDM5Ht67pDKxILzW9c1fmpSm0wrDPSicf9KAI4q_nsEPsfgpDQOSSGG9M_Gw7eGrYSPh_mNz7HC84--ytDa9v_TAXzvPVaB2NbGrXBVBfLnmNbVzdO7CpQ"/>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-10">
+                <a class="nav-link-hover text-primary font-headline font-bold tracking-tight" href="#">Home</a>
+                <a class="nav-link-hover hover:text-primary transition-colors font-headline font-semibold tracking-tight opacity-70 hover:opacity-100" href="#about">About</a>
+                <a class="nav-link-hover hover:text-primary transition-colors font-headline font-semibold tracking-tight opacity-70 hover:opacity-100" href="#services">Services</a>
+                <a class="nav-link-hover hover:text-primary transition-colors font-headline font-semibold tracking-tight opacity-70 hover:opacity-100" href="#projects">Projects</a>
+                <a class="nav-link-hover hover:text-primary transition-colors font-headline font-semibold tracking-tight opacity-70 hover:opacity-100" href="#contact">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <button class="blue-gradient text-white px-8 py-3 rounded-xl font-headline font-bold text-sm tracking-widest uppercase shadow-lg hover:shadow-primary/40 hover:-translate-y-0.5 transition-all active:scale-95">
+                    Get a Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Editorial Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#0A0F2C]">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover opacity-40 mix-blend-overlay scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2BG3KDnlrAcnqqCYgZgeRmWe9ZZy9n-Qm8e9YfFXEM80dkVr3kp0e18yc6WtzVPZzhSkvp7j5VExKy2Q_gITWtVQ91XSIZUz5zC35fnVBGwfJ0GCALZmX1sIf_flzjxUHltjZY3OmgR7pxyBaQcM8rcXPjZeymcl0dPM0qieHID9liisf4n4NX00AR-Ui0iX4HvWjFqp79Dnel6tiQfxz_qBisRJ9ZgXOk3pw1a3xNHmX_LmrGUPKpxvacJSPXIsscWx0OODWKVX"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0A0F2C] via-[#0A0F2C]/80 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-8 lg:px-16 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Asymmetrical Content -->
+                <div class="lg:w-3/5 text-left">
+                    <div class="reveal-on-scroll">
+                        <span class="inline-block px-4 py-1 rounded-full bg-accent/20 text-accent font-headline font-bold text-xs uppercase tracking-[0.3em] mb-8">
+                            Architectural Engineering Specialists
+                        </span>
+                        <h1 class="text-white font-headline font-black text-6xl md:text-8xl lg:text-[100px] leading-[0.95] tracking-tighter mb-8 text-shadow-premium">
+                            Precision in <br/><span class="text-accent underline decoration-accent/30 decoration-8 underline-offset-8">Every Detail.</span>
+                        </h1>
+                        <p class="text-blue-100/80 font-body text-xl md:text-2xl mb-12 max-w-2xl leading-relaxed font-light">
+                            Pioneering modern living through industrial innovation, luxury real estate, and state-of-the-art modular steel infrastructure.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6">
+                            <button class="blue-gradient text-white px-10 py-5 rounded-2xl font-headline font-extrabold text-lg tracking-wider shadow-2xl hover:scale-105 transition-transform">
+                                Start Your Project
+                            </button>
+                            <button class="bg-white/5 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-2xl font-headline font-extrabold text-lg hover:bg-white/10 transition-all flex items-center gap-3">
+                                View Portfolio
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Element -->
+                <div class="lg:w-2/5 hidden lg:block relative reveal-on-scroll stagger-2">
+                    <div class="relative w-full aspect-square">
+                        <div class="absolute inset-0 border-2 border-accent/20 rounded-3xl rotate-6"></div>
+                        <div class="absolute inset-0 border-2 border-white/10 rounded-3xl -rotate-3"></div>
+                        <img class="w-full h-full object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtA9AjXkTjXqchQNb4e5RCxAEQPzWsNIjejww8dqw5sDXUJlNnQx-_YT8hc5NJw8ApA_gz5DhY4uBp2jTg3doS8XhLn0Od-D_sNObf3w8jUEzvlpu2XGCObSSamDriyfpkVJvpTjRoIeW2TbYQNkm60JYrvdkInubYJwsKgvxcVmPdXXxHIOyT2q8HvIWtzRCyv3kP0TsscFvDjJa0J0MZzXpc1Gnx4IEYAUkZnBpKnR2mGgnUWtsqQ7OS-v883m7G0Fml6_-tLyN9"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+            <span class="text-white text-[10px] uppercase tracking-[0.4em] font-headline font-bold">Scroll</span>
+            <div class="w-[1px] h-16 bg-gradient-to-b from-white to-transparent overflow-hidden">
+                <div class="w-full h-full bg-accent animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refined About Section (Editorial Layout) -->
+    <section class="py-32 bg-white overflow-hidden" id="about">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="flex flex-col lg:flex-row gap-32 items-stretch">
+                <div class="lg:w-5/12 reveal-on-scroll">
+                    <div class="sticky top-40">
+                        <div class="inline-block px-5 py-2 rounded-full bg-primary/5 text-primary font-headline font-bold text-xs uppercase tracking-[0.2em] mb-8">
+                            Our Heritage
+                        </div>
+                        <h2 class="text-primary font-headline font-black text-5xl lg:text-7xl tracking-tighter leading-[0.9] mb-12">
+                            A Legacy of <br/>Florida Excellence.
+                        </h2>
+                        <p class="text-on-surface-variant text-xl leading-relaxed font-light mb-12">
+                            Ruben D. Salazar Inc. represents the fusion of architectural precision and visionary property development. From our Cape Coral headquarters, we've redefined luxury living across Florida for over two decades.
+                        </p>
+                        <div class="glass-card p-10 rounded-3xl border-primary/10 shadow-xl relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                            <p class="text-primary font-headline font-black text-6xl mb-2">20+</p>
+                            <p class="text-on-surface font-headline font-bold text-lg leading-snug">Years of Engineering Mastery and licensed relocation expertise.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-7/12 space-y-16">
+                    <div class="reveal-on-scroll stagger-1 group">
+                        <div class="flex items-start gap-8">
+                            <div class="w-20 h-20 rounded-3xl bg-surface flex items-center justify-center shrink-0 shadow-lg group-hover:bg-primary transition-colors duration-500">
+                                <span class="material-symbols-outlined text-primary text-4xl group-hover:text-white transition-colors" data-icon="verified">verified</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-black text-3xl text-on-surface mb-3 tracking-tight">Certified General Contractor</h4>
+                                <p class="text-on-surface-variant text-lg leading-relaxed font-light">Unwavering commitment to Florida building codes and structural safety in every project we undertake.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal-on-scroll stagger-2 group">
+                        <div class="flex items-start gap-8">
+                            <div class="w-20 h-20 rounded-3xl bg-surface flex items-center justify-center shrink-0 shadow-lg group-hover:bg-primary transition-colors duration-500">
+                                <span class="material-symbols-outlined text-primary text-4xl group-hover:text-white transition-colors" data-icon="real_estate_agent">real_estate_agent</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-black text-3xl text-on-surface mb-3 tracking-tight">Licensed Relocation Expert</h4>
+                                <p class="text-on-surface-variant text-lg leading-relaxed font-light">Bridging the gap between dreams and reality for incoming Florida residents with comprehensive real estate solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal-on-scroll stagger-3 group">
+                        <div class="flex items-start gap-8 border-l-4 border-primary/20 pl-8 transition-colors hover:border-primary">
+                            <div class="w-20 h-20 rounded-3xl bg-surface flex items-center justify-center shrink-0 shadow-lg group-hover:bg-primary transition-colors duration-500">
+                                <span class="material-symbols-outlined text-primary text-4xl group-hover:text-white transition-colors" data-icon="precision_manufacturing">precision_manufacturing</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-black text-3xl text-on-surface mb-3 tracking-tight">LGS Modular Specialists</h4>
+                                <p class="text-on-surface-variant text-lg leading-relaxed font-light">Pioneering Light Gauge Steel technology for hurricane-resistant, termite-proof, and eco-friendly structures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 rounded-3xl overflow-hidden shadow-2xl transition-transform hover:scale-[1.02] duration-700 reveal-on-scroll stagger-4">
+                        <img class="w-full aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNPMgsUG6qsO1zY4fah2EWdF3fjmSP5hgb5bRb8UjC3KiyIle7rWOrY68Y2aJX3EZu9VowhQ8lWlVuMbT6jO7zgjlWuCzaz54WgB6CldbHZGvQ92EefAaTOZMW8Pl-bykTzJV2GuhGXjP_1KAsdM07kj3YYbJteJoKFX0kJzBf2SO3OEiNu0PF8p-9qDwwxtRKIU53xp0-EzDWVjyaI5ZXTgCioPeNXPSYGyJiMW6OxgX_Ox1JoGFyDuARJGtZuf2ZK5XiN0tkSS0V"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elevated Services Section -->
+    <section class="py-32 bg-surface" id="services">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                <div class="max-w-2xl reveal-on-scroll">
+                    <h2 class="text-primary font-headline font-black text-5xl lg:text-7xl tracking-tighter mb-8 leading-none">Core Capabilities</h2>
+                    <p class="text-on-surface-variant text-xl font-light">From blueprint to closing, we provide a full-spectrum ecosystem for high-value construction.</p>
+                </div>
+                <div class="reveal-on-scroll">
+                    <a href="#contact" class="flex items-center gap-3 font-headline font-bold text-primary group">
+                        Explore All Services
+                        <span class="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards with Advanced Hover -->
+                <div class="group relative bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 reveal-on-scroll stagger-1">
+                    <div class="mb-12 relative">
+                        <div class="w-16 h-16 bg-primary/5 rounded-2xl absolute -top-4 -left-4 group-hover:scale-150 transition-transform duration-700"></div>
+                        <span class="material-symbols-outlined text-primary text-6xl relative z-10" data-icon="architecture">architecture</span>
+                    </div>
+                    <h3 class="font-headline font-black text-2xl text-on-surface mb-6 group-hover:text-primary transition-colors">Project Planning</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-lg font-light mb-8">Strategic roadmapping and engineering feasibility to ensure structural integrity and financial viability.</p>
+                    <div class="w-full h-[1px] bg-slate-100 group-hover:bg-primary/20 transition-colors"></div>
+                </div>
+
+                <div class="group relative bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 reveal-on-scroll stagger-2">
+                    <div class="mb-12 relative">
+                        <div class="w-16 h-16 bg-primary/5 rounded-2xl absolute -top-4 -left-4 group-hover:scale-150 transition-transform duration-700"></div>
+                        <span class="material-symbols-outlined text-primary text-6xl relative z-10" data-icon="foundation">foundation</span>
+                    </div>
+                    <h3 class="font-headline font-black text-2xl text-on-surface mb-6 group-hover:text-primary transition-colors">Modular Steel</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-lg font-light mb-8">Next-generation LGS framing systems that offer 40% faster builds and unmatched environmental resistance.</p>
+                    <div class="w-full h-[1px] bg-slate-100 group-hover:bg-primary/20 transition-colors"></div>
+                </div>
+
+                <div class="group relative bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 reveal-on-scroll stagger-3">
+                    <div class="mb-12 relative">
+                        <div class="w-16 h-16 bg-primary/5 rounded-2xl absolute -top-4 -left-4 group-hover:scale-150 transition-transform duration-700"></div>
+                        <span class="material-symbols-outlined text-primary text-6xl relative z-10" data-icon="trending_up">trending_up</span>
+                    </div>
+                    <h3 class="font-headline font-black text-2xl text-on-surface mb-6 group-hover:text-primary transition-colors">Real Estate</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-lg font-light mb-8">Identifying high-yield opportunities and guiding investment transitions in Florida's most prestigious markets.</p>
+                    <div class="w-full h-[1px] bg-slate-100 group-hover:bg-primary/20 transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Portfolio Section -->
+    <section class="bg-white" id="projects">
+        <div class="py-32 container mx-auto px-8 lg:px-16">
+            <div class="max-w-3xl mb-32 reveal-on-scroll">
+                <span class="font-headline font-bold text-sm tracking-[0.4em] uppercase text-primary/50 mb-6 block">Portfolio of Precision</span>
+                <h2 class="text-primary font-headline font-black text-6xl lg:text-[90px] leading-[0.9] tracking-tighter">Architectural Triumphs.</h2>
+            </div>
+
+            <div class="space-y-40">
+                <!-- Project Detail 1 -->
+                <div class="flex flex-col lg:flex-row gap-16 items-center reveal-on-scroll">
+                    <div class="lg:w-7/12 relative group overflow-hidden rounded-[2.5rem] shadow-2xl">
+                        <img class="w-full aspect-[4/3] object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvhVIyVjViLDYSDE5dlEx7fu3KcT59dGjcPvsczYsVCv0X-ECQ46xuIomEMltgy_vj_tvGEBumu98dC3F2v_WE0Dehoh7_d_7J2MTfdkcVLAdDZiB7Pjt7W4VdVxf_oarM_xr5yG8sh9SxnuWWw11PBrVG9H1W5OwebS2JqMBPlh3bU9fu5alemZtl53QZ8BlmiIP2KWBDI9kNxY8gBV89NoDBIWKOubsTpbW4aDshUssI1Fyig4cLgbBiJ2jrQW96u3kyKc_YZjLK"/>
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                            <button class="bg-white text-primary px-8 py-4 rounded-full font-headline font-black uppercase tracking-widest translate-y-8 group-hover:translate-y-0 transition-transform duration-700">View Project</button>
+                        </div>
+                    </div>
+                    <div class="lg:w-5/12">
+                        <span class="font-headline font-bold text-sm tracking-widest text-primary/40 mb-4 block">Cape Coral, FL</span>
+                        <h3 class="text-4xl lg:text-6xl font-headline font-black tracking-tight mb-8">The Azure Waterfront</h3>
+                        <p class="text-xl font-light text-on-surface-variant leading-relaxed mb-12">
+                            A 5,200 sq. ft. modular steel residence engineered for maximum hurricane resistance without sacrificing aesthetic transparency.
+                        </p>
+                        <div class="flex gap-12 border-t border-slate-100 pt-10">
+                            <div>
+                                <p class="text-primary font-headline font-black text-3xl">LGS</p>
+                                <p class="text-sm font-bold opacity-40 uppercase tracking-widest">Technology</p>
+                            </div>
+                            <div>
+                                <p class="text-primary font-headline font-black text-3xl">180</p>
+                                <p class="text-sm font-bold opacity-40 uppercase tracking-widest">Days to Build</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Detail 2 (Reversed) -->
+                <div class="flex flex-col lg:flex-row-reverse gap-16 items-center reveal-on-scroll">
+                    <div class="lg:w-7/12 relative group overflow-hidden rounded-[2.5rem] shadow-2xl">
+                        <img class="w-full aspect-[4/3] object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-fOq4ia4nkaKSAwvZobpmoXHWXdzSajdby5NtOPjorLzsEwhGpgGJVfEgTM4SJ14Svkaqm_Nde_-rBD59zYgbn49QPYHCj4ZwfVusZR0oEMQkDGUEWY-A7o5bZGxsHxv7x4a4gRIaWCJKIXS8M5JkK5wnf1CAqBLFqcCmHU1AkwWiSTiHILN7rgI92qbIh9W1ppvntBxrhywu8BcOyg__wHWG9sqKSgODNiQkkkrSNYFwiqwbhmKxQAt5zrcZr7ZtMHgEmpfEoL0l"/>
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                            <button class="bg-white text-primary px-8 py-4 rounded-full font-headline font-black uppercase tracking-widest translate-y-8 group-hover:translate-y-0 transition-transform duration-700">View Project</button>
+                        </div>
+                    </div>
+                    <div class="lg:w-5/12 text-right lg:text-left">
+                        <span class="font-headline font-bold text-sm tracking-widest text-primary/40 mb-4 block">Fort Myers, FL</span>
+                        <h3 class="text-4xl lg:text-6xl font-headline font-black tracking-tight mb-8">Steel-Line Villa</h3>
+                        <p class="text-xl font-light text-on-surface-variant leading-relaxed mb-12 lg:pr-12">
+                            An industrial-modern masterpiece featuring floor-to-ceiling glass and revolutionary structural thermal breaks.
+                        </p>
+                        <div class="flex gap-12 justify-end lg:justify-start border-t border-slate-100 pt-10">
+                            <div>
+                                <p class="text-primary font-headline font-black text-3xl">Steel</p>
+                                <p class="text-sm font-bold opacity-40 uppercase tracking-widest">Frame</p>
+                            </div>
+                            <div>
+                                <p class="text-primary font-headline font-black text-3xl">4.2M</p>
+                                <p class="text-sm font-bold opacity-40 uppercase tracking-widest">Valuation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glassmorphism Contact Section -->
+    <section class="relative py-40 overflow-hidden" id="contact">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2BG3KDnlrAcnqqCYgZgeRmWe9ZZy9n-Qm8e9YfFXEM80dkVr3kp0e18yc6WtzVPZzhSkvp7j5VExKy2Q_gITWtVQ91XSIZUz5zC35fnVBGwfJ0GCALZmX1sIf_flzjxUHltjZY3OmgR7pxyBaQcM8rcXPjZeymcl0dPM0qieHID9liisf4n4NX00AR-Ui0iX4HvWjFqp79Dnel6tiQfxz_qBisRJ9ZgXOk3pw1a3xNHmX_LmrGUPKpxvacJSPXIsscWx0OODWKVX"/>
+            <div class="absolute inset-0 bg-[#0A0F2C]/95 backdrop-blur-sm"></div>
+        </div>
+
+        <div class="container mx-auto px-8 lg:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+                <div class="text-white reveal-on-scroll">
+                    <h2 class="font-headline font-black text-6xl lg:text-[80px] tracking-tighter mb-12 leading-[0.9]">Let's Build the Future.</h2>
+                    <p class="text-blue-100 text-2xl font-light mb-16 opacity-70 leading-relaxed max-w-xl">Whether you're planning a custom modular sanctuary or seeking a relocation partner, we deliver precision.</p>
+                    
+                    <div class="space-y-12">
+                        <div class="flex items-center gap-8 group">
+                            <div class="w-16 h-16 rounded-2xl glass-dark border-white/20 flex items-center justify-center transition-transform group-hover:scale-110">
+                                <span class="material-symbols-outlined text-accent text-3xl">pin_drop</span>
+                            </div>
+                            <div>
+                                <p class="font-headline font-black text-sm uppercase tracking-[0.3em] text-accent mb-1">Headquarters</p>
+                                <p class="text-white text-xl">Cape Coral, FL, USA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-8 group">
+                            <div class="w-16 h-16 rounded-2xl glass-dark border-white/20 flex items-center justify-center transition-transform group-hover:scale-110">
+                                <span class="material-symbols-outlined text-accent text-3xl">call</span>
+                            </div>
+                            <div>
+                                <p class="font-headline font-black text-sm uppercase tracking-[0.3em] text-accent mb-1">Inquiries</p>
+                                <p class="text-white text-xl">+1 (239) 284-5886</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-on-scroll stagger-2">
+                    <div class="glass-card rounded-[2.5rem] p-12 lg:p-16 shadow-2xl border-white/10">
+                        <form class="space-y-10">
+                            <div class="group">
+                                <label class="block text-[10px] font-headline font-black text-primary uppercase tracking-[0.4em] mb-4 opacity-70">Project Visionary</label>
+                                <input class="w-full bg-transparent border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-0 py-4 transition-all text-xl font-headline font-bold placeholder:font-light" placeholder="Full Name" type="text"/>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                <div class="group">
+                                    <label class="block text-[10px] font-headline font-black text-primary uppercase tracking-[0.4em] mb-4 opacity-70">Direct Line</label>
+                                    <input class="w-full bg-transparent border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-0 py-4 transition-all text-xl font-headline font-bold" placeholder="+1..." type="tel"/>
+                                </div>
+                                <div class="group">
+                                    <label class="block text-[10px] font-headline font-black text-primary uppercase tracking-[0.4em] mb-4 opacity-70">Digital Inbox</label>
+                                    <input class="w-full bg-transparent border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-0 py-4 transition-all text-xl font-headline font-bold" placeholder="Email" type="email"/>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label class="block text-[10px] font-headline font-black text-primary uppercase tracking-[0.4em] mb-4 opacity-70">Project Scope</label>
+                                <textarea class="w-full bg-transparent border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-0 py-4 transition-all text-xl font-headline font-bold resize-none" placeholder="Briefly describe your vision..." rows="3"></textarea>
+                            </div>
+                            <button class="w-full blue-gradient text-white py-6 rounded-2xl font-headline font-black text-xl uppercase tracking-widest shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-2">Initialize Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-24 border-t border-slate-100">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-20">
+                <div class="md:col-span-5">
+                    <img alt="Ruben D. Salazar Inc. Logo" class="h-12 w-auto mb-10" src="https://lh3.googleusercontent.com/aida/ADBb0uh9xnY3hsMylpPPPfpmMcxjTw5H4L6-Uqt5sqco34s9HDKPowl0scJMWPy1frPxwcYdZGfhivscgpSUcD0hkKZ5grDLJA_93EFy_wPfd-pn3u3UCUy229KmWbuc24SLG0B8QC1aIgjy5H3kQag8r14dKdDM5Ht67pDKxILzW9c1fmpSm0wrDPSicf9KAI4q_nsEPsfgpDQOSSGG9M_Gw7eGrYSPh_mNz7HC84--ytDa9v_TAXzvPVaB2NbGrXBVBfLnmNbVzdO7CpQ"/>
+                    <p class="text-slate-500 font-body text-xl leading-relaxed mb-12 max-w-md font-light">
+                        Florida's authority in high-precision modular steel systems and luxury architectural engineering.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+                            <span class="material-symbols-outlined">share</span>
+                        </a>
+                        <a class="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+                            <span class="material-symbols-outlined">public</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-3">
+                    <h4 class="font-headline font-black text-primary text-sm uppercase tracking-[0.3em] mb-10">Exploration</h4>
+                    <ul class="space-y-6 font-headline font-bold text-lg">
+                        <li><a class="text-slate-400 hover:text-primary transition-colors" href="#about">The Studio</a></li>
+                        <li><a class="text-slate-400 hover:text-primary transition-colors" href="#services">Our Craft</a></li>
+                        <li><a class="text-slate-400 hover:text-primary transition-colors" href="#projects">Recent Works</a></li>
+                        <li><a class="text-slate-400 hover:text-primary transition-colors" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-headline font-black text-primary text-sm uppercase tracking-[0.3em] mb-10">Bulletin</h4>
+                    <p class="text-slate-500 font-body text-lg leading-relaxed mb-10 font-light">Insights into modular construction and Florida real estate trends.</p>
+                    <div class="flex flex-col gap-4">
+                        <input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 px-6 py-5 focus:ring-0 focus:border-primary rounded-t-xl text-lg" placeholder="Email Address" type="email"/>
+                        <button class="bg-primary text-white px-8 py-5 rounded-xl font-headline font-black uppercase tracking-widest text-sm hover:shadow-lg transition-all">Join Registry</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-32 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-12 opacity-40">
+                <p class="text-sm font-bold tracking-widest uppercase">© 2024 Ruben D. Salazar Inc.</p>
+                <div class="flex gap-12 text-[10px] font-black tracking-[0.2em] uppercase">
+                    <span>License #123456</span>
+                    <span>Brokerage #BK987654</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Controller
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Sticky Nav Polish
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('top-4', 'shadow-2xl');
+                nav.classList.remove('top-6');
+            } else {
+                nav.classList.add('top-6');
+                nav.classList.remove('top-4', 'shadow-2xl');
+            }
+        });
+    </script>
+</body>
+</html>

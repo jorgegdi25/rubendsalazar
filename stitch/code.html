@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ruben D. Salazar Inc. | Architectural Precision</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#dee1ff",
+              "secondary-fixed": "#dfe3e7",
+              "surface-dim": "#d8dadf",
+              "inverse-surface": "#2d3135",
+              "secondary": "#5a5f62",
+              "tertiary-fixed-dim": "#b8c4fe",
+              "tertiary-container": "#384374",
+              "surface": "#f7f9ff",
+              "surface-variant": "#e0e2e8",
+              "inverse-primary": "#b9c3ff",
+              "tertiary": "#202c5c",
+              "background": "#f7f9ff",
+              "on-secondary-fixed-variant": "#43474b",
+              "on-primary-fixed-variant": "#2f4090",
+              "on-primary-container": "#a1afff",
+              "on-tertiary-fixed": "#091747",
+              "on-error-container": "#93000a",
+              "primary": "#132778",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#001258",
+              "on-primary": "#ffffff",
+              "on-surface": "#181c20",
+              "surface-container-highest": "#e0e2e8",
+              "surface-container": "#eceef3",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#b9c3ff",
+              "on-tertiary-fixed-variant": "#384475",
+              "surface-container-high": "#e6e8ee",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#dde1ff",
+              "outline-variant": "#c6c5d3",
+              "outline": "#757682",
+              "secondary-container": "#dfe3e7",
+              "on-secondary-container": "#606569",
+              "inverse-on-surface": "#eef1f6",
+              "surface-container-low": "#f1f4f9",
+              "primary-container": "#2e3f8f",
+              "surface-bright": "#f7f9ff",
+              "surface-tint": "#4858a9",
+              "secondary-fixed-dim": "#c3c7cb",
+              "on-secondary-fixed": "#181c1f",
+              "on-tertiary-container": "#a6b1ea",
+              "on-background": "#181c20",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#454651",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Work Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .blue-gradient-btn {
+        background: linear-gradient(135deg, #132778 0%, #2E3F8F 100%);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<nav class="fixed top-0 w-full z-50 border-b border-white/20 bg-white">
+<div class="flex justify-between items-center px-6 lg:px-12 h-24 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4"><img alt="Ruben D. Salazar Inc. Logo" class="h-16 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uh9xnY3hsMylpPPPfpmMcxjTw5H4L6-Uqt5sqco34s9HDKPowl0scJMWPy1frPxwcYdZGfhivscgpSUcD0hkKZ5grDLJA_93EFy_wPfd-pn3u3UCUy229KmWbuc24SLG0B8QC1aIgjy5H3kQag8r14dKdDM5Ht67pDKxILzW9c1fmpSm0wrDPSicf9KAI4q_nsEPsfgpDQOSSGG9M_Gw7eGrYSPh_mNz7HC84--ytDa9v_TAXzvPVaB2NbGrXBVBfLnmNbVzdO7CpQ"/></div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#132778] font-headline font-bold tracking-tight border-b-2 border-primary" href="#">Home</a>
+<a class="hover:text-primary transition-colors font-headline font-semibold tracking-tight text-[#132778]" href="#about">About</a>
+<a class="hover:text-primary transition-colors font-headline font-semibold tracking-tight text-[#132778]" href="#services">Services</a>
+<a class="hover:text-primary transition-colors font-headline font-semibold tracking-tight text-[#132778]" href="#projects">Projects</a>
+<a class="hover:text-primary transition-colors font-headline font-semibold tracking-tight text-[#132778]" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="blue-gradient-btn text-on-primary px-8 py-3 rounded-xl font-headline font-bold text-sm tracking-widest uppercase shadow-xl hover:shadow-primary/30 transition-all active:scale-95">
+                    Get a Quote
+                </button>
+</div>
+</div>
+</nav>
+<section class="relative h-screen flex items-center justify-center text-center px-6">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2BG3KDnlrAcnqqCYgZgeRmWe9ZZy9n-Qm8e9YfFXEM80dkVr3kp0e18yc6WtzVPZzhSkvp7j5VExKy2Q_gITWtVQ91XSIZUz5zC35fnVBGwfJ0GCALZmX1sIf_flzjxUHltjZY3OmgR7pxyBaQcM8rcXPjZeymcl0dPM0qieHID9liisf4n4NX00AR-Ui0iX4HvWjFqp79Dnel6tiQfxz_qBisRJ9ZgXOk3pw1a3xNHmX_LmrGUPKpxvacJSPXIsscWx0OODWKVX"/>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/90"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<h1 class="text-white font-headline font-black text-6xl md:text-8xl leading-[1] tracking-tighter mb-8 text-shadow-lg">
+                We Build and Manage <br/>Places and Infrastructure
+            </h1>
+<p class="text-primary-fixed font-body text-xl md:text-2xl mb-12 opacity-95 tracking-wide">
+                Project Planning — General Contracting — Remodeling — Steel Construction — Real Estate Solutions
+            </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="blue-gradient-btn text-on-primary px-10 py-5 rounded-xl font-headline font-extrabold text-lg tracking-wider shadow-2xl hover:scale-105 transition-transform">
+                    Request Consultation
+                </button>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-5 rounded-xl font-headline font-extrabold text-lg hover:bg-white/20 transition-all">
+                    View Projects
+                </button>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-white text-5xl font-light" data-icon="expand_more">expand_more</span>
+</div>
+</section>
+<section class="relative py-32 bg-surface overflow-hidden" id="about">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row gap-20 items-center">
+<div class="lg:w-1/2 relative">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtA9AjXkTjXqchQNb4e5RCxAEQPzWsNIjejww8dqw5sDXUJlNnQx-_YT8hc5NJw8ApA_gz5DhY4uBp2jTg3doS8XhLn0Od-D_sNObf3w8jUEzvlpu2XGCObSSamDriyfpkVJvpTjRoIeW2TbYQNkm60JYrvdkInubYJwsKgvxcVmPdXXxHIOyT2q8HvIWtzRCyv3kP0TsscFvDjJa0J0MZzXpc1Gnx4IEYAUkZnBpKnR2mGgnUWtsqQ7OS-v883m7G0Fml6_-tLyN9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="absolute -bottom-10 -right-6 lg:-right-12 glass-card p-10 rounded-2xl shadow-2xl max-w-sm">
+<p class="text-primary font-headline font-black text-6xl mb-2">20+</p>
+<p class="text-on-surface font-headline font-bold text-lg leading-snug">Years of Architectural Engineering Excellence in Florida.</p>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-10">
+<div class="inline-block px-5 py-2 rounded-full bg-primary/10 text-primary font-headline font-bold text-xs uppercase tracking-[0.2em]">
+                        About Our Firm
+                    </div>
+<h2 class="text-primary font-headline font-black text-5xl lg:text-6xl tracking-tighter leading-[1.1]">
+                        Pioneering Modern Living Through Precision Engineering
+                    </h2>
+<p class="text-on-surface-variant text-xl leading-relaxed font-light">
+                        Ruben D. Salazar Inc. stands at the intersection of luxury real estate and industrial innovation. As a certified Florida contractor and licensed relocation specialist, we offer a comprehensive ecosystem for property development and investment.
+                    </p>
+<div class="grid gap-8">
+<div class="flex items-start gap-6">
+<div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-2xl text-on-surface mb-1">Certified Florida Contractor</h4>
+<p class="text-on-surface-variant">Adhering to the highest standards of safety and local building codes.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="real_estate_agent">real_estate_agent</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-2xl text-on-surface mb-1">Licensed Relocation Expert</h4>
+<p class="text-on-surface-variant">Seamless transition and real estate solutions for incoming Florida residents.</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-2xl text-on-surface mb-1">Modular Steel Specialists</h4>
+<p class="text-on-surface-variant">Leveraging LGS technology for faster, more durable, and sustainable builds.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-slate-50" id="services">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center max-w-4xl mx-auto mb-24">
+<h2 class="text-primary font-headline font-black text-5xl lg:text-6xl tracking-tighter mb-8">Our Core Capabilities</h2>
+<div class="h-1.5 w-24 bg-primary mx-auto mb-8 rounded-full"></div>
+<p class="text-on-surface-variant text-xl font-light">From initial blueprinting to final real estate placement, we manage the entire lifecycle of high-value construction projects.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="architecture">architecture</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">Project Planning</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Strategic roadmapping and feasibility studies to ensure every build is structurally and financially sound.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="construction">construction</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">General Contracting</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Full-scale site management with a focus on engineering precision and uncompromising quality control.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="home_repair_service">home_repair_service</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">Remodeling</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Transforming existing structures into modern masterpieces with high-end finishes and structural updates.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="foundation">foundation</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">Modular Steel Houses</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Next-generation prefabricated steel framing for extreme durability and rapid project completion.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="apartment">apartment</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">Residential Construction</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Bespoke luxury homes designed for the unique environmental demands of the Florida coast.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+<div class="group relative bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 block transition-transform group-hover:scale-110" data-icon="trending_up">trending_up</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface mb-5">Real Estate Investment</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Identifying and developing high-yield opportunities in Florida's most prestigious markets.</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative min-h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSmwXGUXsB2mz9huGm_XTCfy9Uh3FBRx0Sa_2xJpH4M0hmC8qRFl38jWEEMfbyEy9igC-zQPKk7Xb72caq2KtVAaMMwe9blCO_gWeZp5JMY-c4CQ3UuM8jzIfj86VjPsPBbGiW7HK5Xw8abre_zzhAVF8xvtg_bmMkZEGQhHrTylZKDQMiD6H8d_44Ve-vU0aN1WIOZusUBtimqUQw3QW1nuSUW0mdkycNc717AfV1Vg3w1eETr3ra3dmp5bAoiWxVaMEiUQg7_px3"/>
+<div class="absolute inset-0 bg-on-tertiary-fixed/80 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-8 py-24">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2 text-white">
+<h2 class="font-headline font-black text-5xl lg:text-7xl tracking-tighter mb-10 leading-none">Leading the Future of Modular Steel</h2>
+<p class="text-primary-fixed text-xl lg:text-2xl mb-12 font-light opacity-90 leading-relaxed">
+                        We utilize advanced LGS (Light Gauge Steel) technology to create structures that are hurricane-resistant, termite-proof, and completed up to 40% faster than traditional concrete blocks.
+                    </p>
+<div class="grid grid-cols-2 gap-4 lg:gap-6">
+<div class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="memory">memory</span>
+<span class="font-headline font-black text-sm uppercase tracking-widest">LGS Technology</span>
+</div>
+<div class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="biotech">biotech</span>
+<span class="font-headline font-black text-sm uppercase tracking-widest">Precision Fab</span>
+</div>
+<div class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="shield">shield</span>
+<span class="font-headline font-black text-sm uppercase tracking-widest">Durable Materials</span>
+</div>
+<div class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="bolt">bolt</span>
+<span class="font-headline font-black text-sm uppercase tracking-widest">Fast Systems</span>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 rotate-2 hover:rotate-0 transition-transform duration-700">
+<img class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNPMgsUG6qsO1zY4fah2EWdF3fjmSP5hgb5bRb8UjC3KiyIle7rWOrY68Y2aJX3EZu9VowhQ8lWlVuMbT6jO7zgjlWuCzaz54WgB6CldbHZGvQ92EefAaTOZMW8Pl-bykTzJV2GuhGXjP_1KAsdM07kj3YYbJteJoKFX0kJzBf2SO3OEiNu0PF8p-9qDwwxtRKIU53xp0-EzDWVjyaI5ZXTgCioPeNXPSYGyJiMW6OxgX_Ox1JoGFyDuARJGtZuf2ZK5XiN0tkSS0V"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white" id="projects">
+<div class="py-24 max-w-screen-2xl mx-auto px-8 text-center">
+<h2 class="text-primary font-headline font-black text-5xl lg:text-7xl tracking-tighter mb-4">Portfolio of Precision</h2>
+<p class="text-on-surface-variant text-xl font-light">A curated selection of our recent architectural triumphs and active real estate listings.</p>
+</div>
+<div class="space-y-4">
+<div class="relative h-[819px] w-full overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvhVIyVjViLDYSDE5dlEx7fu3KcT59dGjcPvsczYsVCv0X-ECQ46xuIomEMltgy_vj_tvGEBumu98dC3F2v_WE0Dehoh7_d_7J2MTfdkcVLAdDZiB7Pjt7W4VdVxf_oarM_xr5yG8sh9SxnuWWw11PBrVG9H1W5OwebS2JqMBPlh3bU9fu5alemZtl53QZ8BlmiIP2KWBDI9kNxY8gBV89NoDBIWKOubsTpbW4aDshUssI1Fyig4cLgbBiJ2jrQW96u3kyKc_YZjLK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-full p-12 lg:p-24 flex flex-col lg:flex-row lg:items-end lg:justify-between text-white">
+<div class="max-w-3xl">
+<span class="font-headline font-bold text-sm tracking-[0.3em] uppercase mb-4 block">Cape Coral, FL</span>
+<h3 class="text-5xl lg:text-7xl font-headline font-black tracking-tighter mb-6">The Azure Waterfront Estate</h3>
+<p class="text-xl lg:text-2xl font-light opacity-90 max-w-2xl mb-8">A 5,200 sq. ft. modular steel luxury residence with panoramic canal views and custom marine dockage.</p>
+</div>
+<button class="bg-white text-primary px-12 py-5 rounded-xl font-headline font-black text-lg hover:bg-primary-fixed transition-colors">View Details</button>
+</div>
+</div>
+<div class="relative h-[819px] w-full overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-fOq4ia4nkaKSAwvZobpmoXHWXdzSajdby5NtOPjorLzsEwhGpgGJVfEgTM4SJ14Svkaqm_Nde_-rBD59zYgbn49QPYHCj4ZwfVusZR0oEMQkDGUEWY-A7o5bZGxsHxv7x4a4gRIaWCJKIXS8M5JkK5wnf1CAqBLFqcCmHU1AkwWiSTiHILN7rgI92qbIh9W1ppvntBxrhywu8BcOyg__wHWG9sqKSgODNiQkkkrSNYFwiqwbhmKxQAt5zrcZr7ZtMHgEmpfEoL0l"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-full p-12 lg:p-24 flex flex-col lg:flex-row lg:items-end lg:justify-between text-white">
+<div class="max-w-3xl">
+<span class="font-headline font-bold text-sm tracking-[0.3em] uppercase mb-4 block">Fort Myers, FL</span>
+<h3 class="text-5xl lg:text-7xl font-headline font-black tracking-tighter mb-6">Steel-Line Modern Villa</h3>
+<p class="text-xl lg:text-2xl font-light opacity-90 max-w-2xl mb-8">Full reconstruction using LGS technology, featuring open-concept layouts and floor-to-ceiling glass walls.</p>
+</div>
+<button class="bg-white text-primary px-12 py-5 rounded-xl font-headline font-black text-lg hover:bg-primary-fixed transition-colors">View Details</button>
+</div>
+</div>
+<div class="relative h-[819px] w-full overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCx6ZUnlApVCia3wpBlUGKajxWAqL9-PN9fow0HAg-oBXelk2J0XtkwZR5j5TQ6bhBigNo45o0oMzw8wwd1tc_1JMxG_LrfuN9t3pI1aECWyXXObCcoYg7cvgeWc2eoNzPj3kgw45a73KdQAQAzyY2UdZWcaA47dbtTf5yUhGaTJXWfVB9A8asBLRGDnNVW8fYvQs6wS5V71pF8mAokysRqAeclt3E8nVvjnSwvqkkfN4CWo0TFH2jJNZt7txr0xKJVit2RdlWtKI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-full p-12 lg:p-24 flex flex-col lg:flex-row lg:items-end lg:justify-between text-white">
+<div class="max-w-3xl">
+<span class="font-headline font-bold text-sm tracking-[0.3em] uppercase mb-4 block">Naples, FL</span>
+<h3 class="text-5xl lg:text-7xl font-headline font-black tracking-tighter mb-6">Pelican Bay Remodel</h3>
+<p class="text-xl lg:text-2xl font-light opacity-90 max-w-2xl mb-8">Luxury kitchen and living room overhaul focused on modern-industrial aesthetics and premium material sourcing.</p>
+</div>
+<button class="bg-white text-primary px-12 py-5 rounded-xl font-headline font-black text-lg hover:bg-primary-fixed transition-colors">View Details</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-slate-50 border-y border-slate-200">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+<div class="group flex flex-col items-center">
+<div class="w-24 h-24 bg-white shadow-lg rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl group-hover:text-white transition-colors" data-icon="gavel">gavel</span>
+</div>
+<p class="font-headline font-black text-xl text-on-surface">Licensed and Insured Contractor</p>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-24 h-24 bg-white shadow-lg rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl group-hover:text-white transition-colors" data-icon="location_on">location_on</span>
+</div>
+<p class="font-headline font-black text-xl text-on-surface">Florida Based Authority</p>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-24 h-24 bg-white shadow-lg rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl group-hover:text-white transition-colors" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<p class="font-headline font-black text-xl text-on-surface">Relocation Specialist</p>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-24 h-24 bg-white shadow-lg rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-5xl group-hover:text-white transition-colors" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<p class="font-headline font-black text-xl text-on-surface">Modular Construction Experts</p>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-32 overflow-hidden" id="contact">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2BG3KDnlrAcnqqCYgZgeRmWe9ZZy9n-Qm8e9YfFXEM80dkVr3kp0e18yc6WtzVPZzhSkvp7j5VExKy2Q_gITWtVQ91XSIZUz5zC35fnVBGwfJ0GCALZmX1sIf_flzjxUHltjZY3OmgR7pxyBaQcM8rcXPjZeymcl0dPM0qieHID9liisf4n4NX00AR-Ui0iX4HvWjFqp79Dnel6tiQfxz_qBisRJ9ZgXOk3pw1a3xNHmX_LmrGUPKpxvacJSPXIsscWx0OODWKVX"/>
+<div class="absolute inset-0 bg-primary/95"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="text-white">
+<h2 class="font-headline font-black text-6xl lg:text-7xl tracking-tighter mb-10 leading-none">Start Your Architectural Journey</h2>
+<p class="text-primary-fixed text-2xl font-light mb-12 opacity-80 leading-relaxed">Whether you're planning a custom steel home or seeking a relocation agent in Florida, our team is ready to deliver excellence.</p>
+<div class="space-y-10">
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="pin_drop">pin_drop</span>
+<div>
+<p class="font-headline font-black text-xl uppercase tracking-widest text-white">Main Headquarters</p>
+<p class="text-primary-fixed text-lg opacity-80">Cape Coral, FL, USA</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="call">call</span>
+<div>
+<p class="font-headline font-black text-xl uppercase tracking-widest text-white">Direct Line</p>
+<p class="text-primary-fixed text-lg opacity-80">+1 (239) 284-5886</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl" data-icon="mail">mail</span>
+<div>
+<p class="font-headline font-black text-xl uppercase tracking-widest text-white">Inquiries</p>
+<p class="text-primary-fixed text-lg opacity-80">office@rubendsalazar.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-3xl p-12 lg:p-16 shadow-2xl">
+<form class="space-y-8">
+<div>
+<label class="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">Full Name</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder="Enter your name" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">Phone</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder="+1 (000) 000-0000" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">Email</label>
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder="your@email.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">Project Message</label>
+<textarea class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors resize-none rounded-t-lg" placeholder="Tell us about your project..." rows="4"></textarea>
+</div>
+<button class="w-full blue-gradient-btn text-on-primary py-6 rounded-2xl font-headline font-black text-xl uppercase tracking-widest shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-1">Send Inquiry</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-white py-24 px-8 border-t border-slate-100">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+<div>
+<img alt="Ruben D. Salazar Inc. Logo" class="h-12 w-auto mb-8" src="https://lh3.googleusercontent.com/aida/ADBb0uh9xnY3hsMylpPPPfpmMcxjTw5H4L6-Uqt5sqco34s9HDKPowl0scJMWPy1frPxwcYdZGfhivscgpSUcD0hkKZ5grDLJA_93EFy_wPfd-pn3u3UCUy229KmWbuc24SLG0B8QC1aIgjy5H3kQag8r14dKdDM5Ht67pDKxILzW9c1fmpSm0wrDPSicf9KAI4q_nsEPsfgpDQOSSGG9M_Gw7eGrYSPh_mNz7HC84--ytDa9v_TAXzvPVaB2NbGrXBVBfLnmNbVzdO7CpQ"/>
+<p class="text-slate-500 font-body text-lg leading-relaxed mb-8">
+                    A premier construction and real estate firm specializing in high-precision modular steel systems and luxury Florida living.
+                </p>
+<div class="flex gap-6">
+<a class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-black text-primary text-xl uppercase tracking-widest mb-8">Quick Links</h4>
+<ul class="space-y-4 font-headline font-semibold text-lg">
+<li><a class="text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 hover:text-primary transition-colors" href="#">Licensing Information</a></li>
+<li><a class="text-slate-500 hover:text-primary transition-colors" href="#">Investor Relations</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-black text-primary text-xl uppercase tracking-widest mb-8">Newsletter</h4>
+<p class="text-slate-500 font-body text-lg leading-relaxed mb-8">
+                    Sign up for updates on new modular steel home developments and real estate opportunities.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-slate-50 border-0 border-b-2 border-slate-200 px-6 py-4 focus:ring-0 focus:border-primary rounded-t-lg" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-headline font-black uppercase tracking-widest text-sm">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-24 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
+<p class="text-slate-400 font-body text-sm">© 2024 Ruben D. Salazar Inc. Architectural Precision in Florida.</p>
+<div class="flex gap-10">
+<span class="text-slate-400 text-sm font-bold tracking-widest uppercase">FL State License #123456</span>
+<span class="text-slate-400 text-sm font-bold tracking-widest uppercase">Real Estate License #BK987654</span>
+</div>
+</div>
+</footer>
+</body></html>
