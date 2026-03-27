@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import type { ProjectItem, ProjectFeature } from '../data/mockData';
@@ -6,7 +6,7 @@ import type { ProjectItem, ProjectFeature } from '../data/mockData';
 export const ProjectDetails = () => {
   const { id } = useParams();
   const { language: lang, t: siteData } = useLanguage();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState<'todos' | 'exterior' | 'interior'>('todos');
   
   // Find project in the current language's siteData
@@ -24,6 +24,36 @@ export const ProjectDetails = () => {
   const filteredGallery = galleryItems.filter(
     (item: { category: string }) => activeFilter === 'todos' || item.category === activeFilter
   );
+
+  // Lightbox navigation using filteredGallery
+  const openLightbox = (indexInFiltered: number) => {
+    setSelectedIndex(indexInFiltered);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = useCallback(() => {
+    setSelectedIndex(null);
+    document.body.style.overflow = 'auto';
+  }, []);
+
+  const goNext = useCallback(() => {
+    setSelectedIndex((prev) => prev !== null ? (prev + 1) % filteredGallery.length : null);
+  }, [filteredGallery.length]);
+
+  const goPrev = useCallback(() => {
+    setSelectedIndex((prev) => prev !== null ? (prev - 1 + filteredGallery.length) % filteredGallery.length : null);
+  }, [filteredGallery.length]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') goNext();
+      else if (e.key === 'ArrowLeft') goPrev();
+      else if (e.key === 'Escape') closeLightbox();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [selectedIndex, goNext, goPrev, closeLightbox]);
 
   return (
     <div className="bg-white min-h-screen font-body">
@@ -265,11 +295,11 @@ export const ProjectDetails = () => {
               >Interior</button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-               {filteredGallery.map((item: { id: number; src: string }) => (
+               {filteredGallery.map((item: { id: number; src: string }, index: number) => (
                   <div 
                     key={item.id} 
                     className="aspect-square rounded-2xl overflow-hidden group cursor-pointer animate-in fade-in"
-                    onClick={() => setSelectedImage(item.src)}
+                    onClick={() => openLightbox(index)}
                   >
                     <img src={item.src} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={`Gallery ${item.id}`} />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -297,29 +327,53 @@ export const ProjectDetails = () => {
              </button>
           </div>
           <div className="hidden lg:block relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-             <img src="/about.png" className="absolute inset-0 w-full h-full object-cover relative z-10" alt="Lifestyle" />
+             <img src={siteData.about.image} className="absolute inset-0 w-full h-full object-cover relative z-10" alt="Lifestyle" />
           </div>
         </div>
       </section>
 
       {/* LIGHTBOX MODAL */}
-      {selectedImage && (
+      {selectedIndex !== null && filteredGallery[selectedIndex] && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-in fade-in duration-300"
-          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
+          onClick={closeLightbox}
         >
+          {/* Close */}
           <button 
-            className="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors z-10 bg-black/50 w-12 h-12 rounded-full flex items-center justify-center"
-            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+            className="absolute top-6 right-6 z-10 text-white/70 hover:text-white transition-colors p-2"
+            onClick={closeLightbox}
           >
-            <span className="material-symbols-outlined">close</span>
+            <span className="material-symbols-outlined text-4xl md:text-5xl">close</span>
           </button>
+
+          {/* Counter */}
+          <div className="absolute top-7 left-6 text-white/60 text-sm md:text-base font-medium select-none">
+            {selectedIndex + 1} / {filteredGallery.length}
+          </div>
+
+          {/* Previous */}
+          <button
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+          >
+            <span className="material-symbols-outlined text-3xl md:text-4xl">chevron_left</span>
+          </button>
+
+          {/* Image */}
           <img 
-            src={selectedImage} 
-            className="max-w-full max-h-[90vh] object-contain shadow-2xl" 
-            alt="Gallery Fullscreen" 
+            src={filteredGallery[selectedIndex].src} 
+            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl select-none" 
+            alt={`Gallery ${filteredGallery[selectedIndex].id}`}
             onClick={(e) => e.stopPropagation()} 
           />
+
+          {/* Next */}
+          <button
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+          >
+            <span className="material-symbols-outlined text-3xl md:text-4xl">chevron_right</span>
+          </button>
         </div>
       )}
 
