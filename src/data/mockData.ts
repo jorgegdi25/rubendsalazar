@@ -1,3 +1,9 @@
+// Helper: prepend Vite's base URL to local asset paths so they work in subfolders
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL.slice(0, -1)
+  : import.meta.env.BASE_URL;
+const asset = (path: string) => `${base}${path}`;
+
 export interface NavLink {
   id: string;
   label: string;
@@ -135,7 +141,7 @@ export interface SiteData {
 
 const siteDataEN: SiteData = {
   companyName: "Ruben D Salazar, Inc.",
-  logoUrl: "/logo-rds.webp",
+  logoUrl: asset("/logo-rds.webp"),
   navLinks: [
     { id: "home", label: "Home", href: "#" },
     { id: "about", label: "About Us", href: "#about" },
@@ -153,7 +159,7 @@ const siteDataEN: SiteData = {
     subtitle: "47 Projects Completed | 25+ Years of Experience",
     description: "",
     bgImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCV2BG3KDnlrAcnqqCYgZgeRmWe9ZZy9n-Qm8e9YfFXEM80dkVr3kp0e18yc6WtzVPZzhSkvp7j5VExKy2Q_gITWtVQ91XSIZUz5zC35fnVBGwfJ0GCALZmX1sIf_flzjxUHltjZY3OmgR7pxyBaQcM8rcXPjZeymcl0dPM0qieHID9liisf4n4NX00AR-Ui0iX4HvWjFqp79Dnel6tiQfxz_qBisRJ9ZgXOk3pw1a3xNHmX_LmrGUPKpxvacJSPXIsscWx0OODWKVX",
-    sliderImages: ["/hero-1.jpeg", "/hero-2.jpeg", "/hero-3.jpeg"],
+    sliderImages: [asset("/hero-1.jpeg"), asset("/hero-2.jpeg"), asset("/hero-3.jpeg")],
   },
   about: {
     tagline: "About Us",
@@ -161,7 +167,7 @@ const siteDataEN: SiteData = {
     description: "We are a general contractor with licensed and insured in Florida (CBC#1253051) and are legally authorized to build new homes or complete interior or exterior renovations of any scope or size. Need a contractor to build your dream home? We would love to be part of turning your dreams into reality. We have spent the past 32 years building relationships with the community and trusted contractors.",
     yearsExperience: "25",
     yearsText: "Years of Experience in Florida.",
-    image: "/about.png",
+    image: asset("/about.png"),
     features: [
       {
         icon: "verified",
@@ -208,7 +214,7 @@ const siteDataEN: SiteData = {
     description: "Make sure to choose the right property for your purpose. We offer everything from the production of engineer-certified plans to the complete construction of the project. We assess the site and coordinate every step, from foundation to final installation, using skilled craftsmen and reliable subcontractors to bring your vision to life.",
     awardTitle: "5 consecutive years winning the Best Builder Award in Cape Coral.",
     bgImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCSmwXGUXsB2mz9huGm_XTCfy9Uh3FBRx0Sa_2xJpH4M0hmC8qRFl38jWEEMfbyEy9igC-zQPKk7Xb72caq2KtVAaMMwe9blCO_gWeZp5JMY-c4CQ3UuM8jzIfj86VjPsPBbGiW7HK5Xw8abre_zzhAVF8xvtg_bmMkZEGQhHrTylZKDQMiD6H8d_44Ve-vU0aN1WIOZusUBtimqUQw3QW1nuSUW0mdkycNc717AfV1Vg3w1eETr3ra3dmp5bAoiWxVaMEiUQg7_px3",
-    image: "/premio-de-al-mejor-constructor.webp"
+    image: asset("/premio-de-al-mejor-constructor.webp")
   },
   projects: {
     title: "Featured Projects",
@@ -221,14 +227,14 @@ const siteDataEN: SiteData = {
         description: "We offer everything from the production of engineer-certified plans to the complete construction of your luxury home project.",
         fullDescription: "A modern architectural marvel situated in the heart of Lehigh Acres. Built using high endurance modular materials and carefully planned to optimize natural light, ventilation, and Florida's coastal requirements.",
         longDescription: "Lehigh Acres is a vibrant community near Fort Myers, famous for open spaces and a tranquil environment. Ideal for those seeking peace and nature while remaining close to modern amenities.",
-        image: "/projects/lehigh/img-1.webp",
+        image: asset("/projects/lehigh/img-1.webp"),
         status: "Completed",
         sqft: "1,700 sq ft",
         bedrooms: "3",
         bathrooms: "2",
         garage: "Double",
         lotSize: "1/4 acre",
-        floorplanUrl: "/plano-lehigh.pdf",
+        floorplanUrl: asset("/plano-lehigh.pdf"),
         mapUrl: "https://maps.google.com/maps?q=2904%206th%20St%20W,%20Lehigh%20Acres,%20FL%2033971&t=&z=14&ie=UTF8&iwloc=&output=embed",
         features: [
           { icon: "check_circle", title: "3 spacious bedrooms", desc: "" },
@@ -237,21 +243,21 @@ const siteDataEN: SiteData = {
           { icon: "check_circle", title: "Practical laundry area", desc: "" }
         ],
         galleryItems: [
-          { id: 1, src: '/projects/gallery/home-2.jpg.webp', category: 'interior' },
-          { id: 2, src: '/projects/gallery/home-6.jpg.webp', category: 'interior' },
-          { id: 3, src: '/projects/gallery/home-7.jpg.webp', category: 'interior' },
-          { id: 4, src: '/projects/gallery/house-3.jpg.webp', category: 'exterior' },
-          { id: 5, src: '/projects/gallery/house-4.jpg.webp', category: 'interior' },
-          { id: 6, src: '/projects/gallery/house-5.jpg.webp', category: 'interior' },
-          { id: 7, src: '/projects/gallery/house-6.jpg.webp', category: 'interior' },
-          { id: 8, src: '/projects/gallery/house-7.jpg.webp', category: 'interior' },
-          { id: 9, src: '/projects/gallery/house-8.jpg.webp', category: 'interior' },
-          { id: 10, src: '/projects/gallery/house-9.jpg.webp', category: 'interior' },
-          { id: 11, src: '/projects/gallery/house-10.jpg.webp', category: 'interior' },
-          { id: 12, src: '/projects/gallery/house-11.jpg.webp', category: 'interior' },
-          { id: 13, src: '/projects/gallery/house-12.jpg.webp', category: 'interior' },
-          { id: 14, src: '/projects/gallery/house-13.jpg.webp', category: 'interior' },
-          { id: 15, src: '/projects/gallery/house2-1.jpg.webp', category: 'exterior' },
+          { id: 1, src: asset('/projects/gallery/home-2.jpg.webp'), category: 'interior' },
+          { id: 2, src: asset('/projects/gallery/home-6.jpg.webp'), category: 'interior' },
+          { id: 3, src: asset('/projects/gallery/home-7.jpg.webp'), category: 'interior' },
+          { id: 4, src: asset('/projects/gallery/house-3.jpg.webp'), category: 'exterior' },
+          { id: 5, src: asset('/projects/gallery/house-4.jpg.webp'), category: 'interior' },
+          { id: 6, src: asset('/projects/gallery/house-5.jpg.webp'), category: 'interior' },
+          { id: 7, src: asset('/projects/gallery/house-6.jpg.webp'), category: 'interior' },
+          { id: 8, src: asset('/projects/gallery/house-7.jpg.webp'), category: 'interior' },
+          { id: 9, src: asset('/projects/gallery/house-8.jpg.webp'), category: 'interior' },
+          { id: 10, src: asset('/projects/gallery/house-9.jpg.webp'), category: 'interior' },
+          { id: 11, src: asset('/projects/gallery/house-10.jpg.webp'), category: 'interior' },
+          { id: 12, src: asset('/projects/gallery/house-11.jpg.webp'), category: 'interior' },
+          { id: 13, src: asset('/projects/gallery/house-12.jpg.webp'), category: 'interior' },
+          { id: 14, src: asset('/projects/gallery/house-13.jpg.webp'), category: 'interior' },
+          { id: 15, src: asset('/projects/gallery/house2-1.jpg.webp'), category: 'exterior' },
         ]
       },
       {
@@ -261,7 +267,7 @@ const siteDataEN: SiteData = {
         description: "Modern luxury under construction in the prestigious Burnt Store area.",
         fullDescription: "Explore the opportunity to own a modern and spacious home under construction in the prestigious area of Burnt Store Rd S, Cape Coral, FL. This residential project offers contemporary design and a prime location with panoramic views and direct access to waterways.",
         longDescription: "This two-story private residence spans 13,175 sq ft of prime lot area, featuring 5 bedrooms and 4.5 bathrooms. Designed for the ultimate waterfront lifestyle, the property offers direct access to Cape Coral's world-famous canal system.",
-        image: "/projects/cape-coral/showcase-1.webp",
+        image: asset("/projects/cape-coral/showcase-1.webp"),
         status: "Under Construction",
         delivery: "2 months",
         sqft: "1,700 - 2,500 sq ft",
@@ -279,33 +285,33 @@ const siteDataEN: SiteData = {
           { icon: "landscape", title: "Generous Lot", desc: "Large 13,175 sq ft property with plenty of space for outdoor living." }
         ],
         galleryItems: [
-          { id: 101, src: '/projects/cape-coral/showcase-1.webp', category: 'exterior' },
-          { id: 102, src: '/projects/cape-coral/showcase-2.webp', category: 'interior' },
-          { id: 103, src: '/projects/cape-coral/showcase-3.webp', category: 'exterior' },
-          { id: 6, src: '/projects/cape-coral/1000001031.jpg.webp', category: 'interior' },
-          { id: 7, src: '/projects/cape-coral/1000001032.jpg.webp', category: 'interior' },
-          { id: 8, src: '/projects/cape-coral/1000001033.jpg.webp', category: 'interior' },
-          { id: 9, src: '/projects/cape-coral/1000001034.jpg.webp', category: 'interior' },
-          { id: 10, src: '/projects/cape-coral/1000001035.jpg.webp', category: 'interior' },
-          { id: 11, src: '/projects/cape-coral/1000001036.jpg.webp', category: 'interior' },
-          { id: 12, src: '/projects/cape-coral/1000001037.jpg.webp', category: 'interior' },
-          { id: 13, src: '/projects/cape-coral/1000001038-scaled.jpg.webp', category: 'interior' },
-          { id: 14, src: '/projects/cape-coral/1000001040.jpg.webp', category: 'interior' },
-          { id: 15, src: '/projects/cape-coral/1000001041.jpg.webp', category: 'interior' },
-          { id: 16, src: '/projects/cape-coral/1000001043.jpg.webp', category: 'interior' },
-          { id: 17, src: '/projects/cape-coral/1000001044.jpg.webp', category: 'interior' },
-          { id: 18, src: '/projects/cape-coral/1000001045.jpg.webp', category: 'interior' },
-          { id: 19, src: '/projects/cape-coral/1000001047.jpg.webp', category: 'interior' },
-          { id: 20, src: '/projects/cape-coral/1000001048.jpg.webp', category: 'interior' },
-          { id: 21, src: '/projects/cape-coral/1000001049.jpg.webp', category: 'interior' },
-          { id: 22, src: '/projects/cape-coral/1000001050.jpg.webp', category: 'interior' },
-          { id: 23, src: '/projects/cape-coral/1000001051.jpg.webp', category: 'interior' },
-          { id: 24, src: '/projects/cape-coral/1000001052.jpg.webp', category: 'interior' },
-          { id: 1, src: '/projects/cape-coral/432-Burnt-Store-Rd-S-1.jpg.webp', category: 'exterior' },
-          { id: 2, src: '/projects/cape-coral/432-Burnt-Store-Rd-S-3.jpg.webp', category: 'exterior' },
-          { id: 3, src: '/projects/cape-coral/432-Burnt-Store-Rd-S-4.jpg.webp', category: 'exterior' },
-          { id: 4, src: '/projects/cape-coral/432-Burnt-Store-Rd-S-5.jpg.webp', category: 'exterior' },
-          { id: 5, src: '/projects/cape-coral/432-Burnt-Store-Rd-S-6.jpg.webp', category: 'exterior' }
+          { id: 101, src: asset('/projects/cape-coral/showcase-1.webp'), category: 'exterior' },
+          { id: 102, src: asset('/projects/cape-coral/showcase-2.webp'), category: 'interior' },
+          { id: 103, src: asset('/projects/cape-coral/showcase-3.webp'), category: 'exterior' },
+          { id: 6, src: asset('/projects/cape-coral/1000001031.jpg.webp'), category: 'interior' },
+          { id: 7, src: asset('/projects/cape-coral/1000001032.jpg.webp'), category: 'interior' },
+          { id: 8, src: asset('/projects/cape-coral/1000001033.jpg.webp'), category: 'interior' },
+          { id: 9, src: asset('/projects/cape-coral/1000001034.jpg.webp'), category: 'interior' },
+          { id: 10, src: asset('/projects/cape-coral/1000001035.jpg.webp'), category: 'interior' },
+          { id: 11, src: asset('/projects/cape-coral/1000001036.jpg.webp'), category: 'interior' },
+          { id: 12, src: asset('/projects/cape-coral/1000001037.jpg.webp'), category: 'interior' },
+          { id: 13, src: asset('/projects/cape-coral/1000001038-scaled.jpg.webp'), category: 'interior' },
+          { id: 14, src: asset('/projects/cape-coral/1000001040.jpg.webp'), category: 'interior' },
+          { id: 15, src: asset('/projects/cape-coral/1000001041.jpg.webp'), category: 'interior' },
+          { id: 16, src: asset('/projects/cape-coral/1000001043.jpg.webp'), category: 'interior' },
+          { id: 17, src: asset('/projects/cape-coral/1000001044.jpg.webp'), category: 'interior' },
+          { id: 18, src: asset('/projects/cape-coral/1000001045.jpg.webp'), category: 'interior' },
+          { id: 19, src: asset('/projects/cape-coral/1000001047.jpg.webp'), category: 'interior' },
+          { id: 20, src: asset('/projects/cape-coral/1000001048.jpg.webp'), category: 'interior' },
+          { id: 21, src: asset('/projects/cape-coral/1000001049.jpg.webp'), category: 'interior' },
+          { id: 22, src: asset('/projects/cape-coral/1000001050.jpg.webp'), category: 'interior' },
+          { id: 23, src: asset('/projects/cape-coral/1000001051.jpg.webp'), category: 'interior' },
+          { id: 24, src: asset('/projects/cape-coral/1000001052.jpg.webp'), category: 'interior' },
+          { id: 1, src: asset('/projects/cape-coral/432-Burnt-Store-Rd-S-1.jpg.webp'), category: 'exterior' },
+          { id: 2, src: asset('/projects/cape-coral/432-Burnt-Store-Rd-S-3.jpg.webp'), category: 'exterior' },
+          { id: 3, src: asset('/projects/cape-coral/432-Burnt-Store-Rd-S-4.jpg.webp'), category: 'exterior' },
+          { id: 4, src: asset('/projects/cape-coral/432-Burnt-Store-Rd-S-5.jpg.webp'), category: 'exterior' },
+          { id: 5, src: asset('/projects/cape-coral/432-Burnt-Store-Rd-S-6.jpg.webp'), category: 'exterior' }
         ]
       },
       {
@@ -404,24 +410,24 @@ const siteDataEN: SiteData = {
     }
   },
   gallery: [
-    "/projects/gallery/house-1.jpg.webp",
-    "/projects/gallery/house-2.jpg.webp",
-    "/projects/gallery/house-3.jpg.webp",
-    "/projects/gallery/house-3.jpg-2.webp",
-    "/projects/gallery/house-4.jpg.webp",
-    "/projects/gallery/house-5.jpg.webp",
-    "/projects/gallery/house-6.jpg.webp",
-    "/projects/gallery/house-8.jpg.webp",
-    "/projects/gallery/house-9.jpg.webp",
-    "/projects/gallery/house-10.jpg.webp",
-    "/projects/gallery/house-11.jpg.webp",
-    "/projects/gallery/house-12.jpg.webp",
+    asset("/projects/gallery/house-1.jpg.webp"),
+    asset("/projects/gallery/house-2.jpg.webp"),
+    asset("/projects/gallery/house-3.jpg.webp"),
+    asset("/projects/gallery/house-3.jpg-2.webp"),
+    asset("/projects/gallery/house-4.jpg.webp"),
+    asset("/projects/gallery/house-5.jpg.webp"),
+    asset("/projects/gallery/house-6.jpg.webp"),
+    asset("/projects/gallery/house-8.jpg.webp"),
+    asset("/projects/gallery/house-9.jpg.webp"),
+    asset("/projects/gallery/house-10.jpg.webp"),
+    asset("/projects/gallery/house-11.jpg.webp"),
+    asset("/projects/gallery/house-12.jpg.webp"),
   ]
 };
 
 const siteDataES: SiteData = {
   companyName: "Ruben D Salazar, Inc.",
-  logoUrl: "/logo-rds.webp",
+  logoUrl: asset("/logo-rds.webp"),
   navLinks: [
     { id: "home", label: "Inicio", href: "#" },
     { id: "about", label: "Nosotros", href: "#about" },
@@ -514,7 +520,7 @@ const siteDataES: SiteData = {
         bathrooms: "2",
         garage: "Doble",
         lotSize: "1/4 acre",
-        floorplanUrl: "/plano-lehigh.pdf",
+        floorplanUrl: asset("/plano-lehigh.pdf"),
         mapUrl: siteDataEN.projects.items[0].mapUrl,
         features: [
           { icon: "check_circle", title: "3 amplias habitaciones", desc: "" },
