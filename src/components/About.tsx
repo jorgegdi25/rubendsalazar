@@ -16,9 +16,9 @@ export const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-10 -right-6 lg:-right-12 glass-card p-10 rounded-2xl shadow-2xl max-w-sm bg-white/10 backdrop-blur-3xl border border-white/10">
-              <p className="text-primary font-headline font-black text-6xl mb-2">{siteData.about.yearsExperience}</p>
-              <p className="text-on-surface font-headline font-bold text-lg leading-snug">
+            <div className="absolute -bottom-6 -right-4 lg:-bottom-10 lg:-right-12 glass-card p-6 lg:p-10 rounded-2xl shadow-2xl max-w-[160px] lg:max-w-sm bg-white/10 backdrop-blur-3xl border border-white/10">
+              <p className="text-primary font-headline font-black text-4xl lg:text-6xl mb-2">{siteData.about.yearsExperience}</p>
+              <p className="text-on-surface font-headline font-bold text-sm lg:text-lg leading-snug">
                 {siteData.about.yearsText}
               </p>
             </div>
@@ -27,7 +27,7 @@ export const About = () => {
             <div className="inline-block px-5 py-2 rounded-full bg-primary/10 text-primary font-headline font-bold text-xs uppercase tracking-[0.2em]">
               {siteData.about.tagline}
             </div>
-            <h2 className="text-primary font-headline font-black text-5xl lg:text-6xl tracking-tighter leading-[1.1]">
+            <h2 className="text-primary font-headline font-black text-3xl md:text-5xl lg:text-6xl tracking-tighter leading-[1.1]">
               {siteData.about.title}
             </h2>
             <p className="text-on-surface-variant text-xl leading-relaxed font-light">

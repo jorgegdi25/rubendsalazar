@@ -8,6 +8,13 @@ export const ProjectDetails = () => {
   const { language: lang, t: siteData } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState<'todos' | 'exterior' | 'interior'>('todos');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
   
   // Find project in the current language's siteData
   const project = siteData.projects.items.find((p: ProjectItem) => p.id === id);
@@ -59,7 +66,7 @@ export const ProjectDetails = () => {
     <div className="bg-white min-h-screen font-body">
       
       {/* 2. HERO SECTION */}
-      <section className="relative pt-[140px] pb-12 lg:pb-16 px-6 lg:px-12 flex items-center min-h-screen">
+      <section className="relative pt-[120px] lg:pt-[140px] pb-12 lg:pb-16 px-6 lg:px-12 flex items-center min-h-screen">
         <div className="absolute inset-0 z-0">
           <img src={project.image} className="w-full h-full object-cover" alt="Background" />
           <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:to-white/40 z-10 backdrop-blur-[2px]"></div>
@@ -68,7 +75,7 @@ export const ProjectDetails = () => {
         <div className="relative z-20 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Text */}
           <div className="text-primary">
-            <h1 className="font-headline font-black text-5xl lg:text-6xl tracking-tighter mb-8 leading-tight drop-shadow-sm">
+            <h1 className="font-headline font-black text-3xl md:text-5xl lg:text-6xl tracking-tighter mb-8 leading-tight drop-shadow-sm">
               {project.title}
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8 font-light text-on-surface-variant font-body">
@@ -84,9 +91,9 @@ export const ProjectDetails = () => {
                   {lang === 'es' ? 'Reserva en Airbnb' : 'Book on Airbnb'}
                 </a>
               ) : (
-                <button className="blue-gradient-btn px-8 py-4 rounded-xl font-headline font-extrabold text-base text-white shadow-lg hover:shadow-primary/30 transition-shadow">
+                <a href={`tel:${siteData.contact.phone}`} className="blue-gradient-btn px-8 py-4 rounded-xl font-headline font-extrabold text-base text-white shadow-lg hover:shadow-primary/30 transition-shadow inline-block text-center">
                   {lang === 'es' ? 'Llama Ahora' : 'Call Now'}
-                </button>
+                </a>
               )}
               {project.status && (
                 <div className="px-6 py-4 rounded-xl border border-primary/10 bg-white/60 backdrop-blur-md font-headline font-bold text-primary flex items-center gap-3 text-sm">
@@ -105,21 +112,41 @@ export const ProjectDetails = () => {
                  ? (lang === 'es' ? '¿Listo para tus vacaciones?' : 'Ready for your perfect getaway?')
                  : (lang === 'es' ? '¿Listo para dar el siguiente paso?' : 'Ready to take the next step?')}
              </h2>
-             <form className="space-y-3 relative z-10" onSubmit={e => e.preventDefault()}>
-               <input type="text" placeholder={siteData.ui.contactForm.fullNamePlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
-               <input type="tel" placeholder={siteData.ui.contactForm.phonePlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
-               <input type="email" placeholder={siteData.ui.contactForm.emailPlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
-               
-               {project.isRental && project.airbnbUrl ? (
-                 <a href={project.airbnbUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3.5 rounded-xl font-headline font-bold text-base transition-colors mt-2 text-center block">
-                   {lang === 'es' ? 'Consultar Disponibilidad' : 'Check Availability'}
-                 </a>
-               ) : (
-                 <button className="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3.5 rounded-xl font-headline font-bold text-base transition-colors mt-2">
-                   {lang === 'es' ? 'Obtener Información' : 'Get Information'}
+             {formSubmitted ? (
+               <div className="flex flex-col items-center justify-center text-center space-y-4 py-8 animate-in fade-in zoom-in duration-500">
+                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                   <span className="material-symbols-outlined text-green-600 text-3xl">check_circle</span>
+                 </div>
+                 <h3 className="font-headline font-black text-xl text-primary uppercase">
+                   {siteData.ui.contactForm.successTitle}
+                 </h3>
+                 <p className="text-slate-500 text-sm">
+                   {siteData.ui.contactForm.successMessage}
+                 </p>
+                 <button 
+                   onClick={() => setFormSubmitted(false)}
+                   className="text-primary text-xs font-bold hover:underline py-2"
+                 >
+                   {lang === 'es' ? 'Enviar otro' : 'Send another'}
                  </button>
-               )}
-             </form>
+               </div>
+             ) : (
+               <form className="space-y-3 relative z-10" onSubmit={handleFormSubmit}>
+                 <input required type="text" placeholder={siteData.ui.contactForm.fullNamePlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
+                 <input required type="tel" placeholder={siteData.ui.contactForm.phonePlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
+                 <input required type="email" placeholder={siteData.ui.contactForm.emailPlaceholder} className="w-full bg-white/90 border border-slate-100 text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" />
+                 
+                 {project.isRental && project.airbnbUrl ? (
+                   <a href={project.airbnbUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3.5 rounded-xl font-headline font-bold text-base transition-colors mt-2 text-center block">
+                     {lang === 'es' ? 'Consultar Disponibilidad' : 'Check Availability'}
+                   </a>
+                 ) : (
+                   <button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3.5 rounded-xl font-headline font-bold text-base transition-colors mt-2">
+                     {lang === 'es' ? 'Obtener Información' : 'Get Information'}
+                   </button>
+                 )}
+               </form>
+             )}
           </div>
         </div>
       </section>
@@ -128,7 +155,7 @@ export const ProjectDetails = () => {
       <div className="bg-primary text-white py-6">
         <div className="max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
            <span className="material-symbols-outlined text-4xl">rocket_launch</span>
-           <span className="font-headline font-bold text-xl uppercase tracking-widest">
+           <span className="font-headline font-bold text-sm md:text-xl uppercase tracking-widest px-4">
              {project.isRental
                ? (lang === 'es' ? 'Vive una experiencia inolvidable: ¡Reserva hoy mismo tu estancia en este paraíso!' : 'Experience an unforgettable stay: Book your getaway in paradise today!')
                : (lang === 'es' ? 'Convierte Tus Sueños en Realidad: ¡Completa el Formulario y Comienza tu Viaje a Casa!' : 'Turn your dreams into reality: complete the form and start your journey home!')}
@@ -144,7 +171,7 @@ export const ProjectDetails = () => {
             <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl mb-8 relative">
                <img src={project.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Location" />
             </div>
-            <h3 className="text-3xl font-headline font-black text-primary mb-4">
+            <h3 className="text-2xl lg:text-3xl font-headline font-black text-primary mb-4">
               {lang === 'es' ? 'Ubicación Estratégica' : 'Strategic Location'}
             </h3>
             <p className="text-lg text-on-surface-variant font-light">
@@ -191,7 +218,7 @@ export const ProjectDetails = () => {
                   )}
                </div>
             </div>
-            <h3 className="text-3xl font-headline font-black text-primary mb-4">
+            <h3 className="text-2xl lg:text-3xl font-headline font-black text-primary mb-4">
               {lang === 'es' ? 'Especificaciones' : 'Specifications'}
             </h3>
             <p className="text-lg text-on-surface-variant font-light">
@@ -219,7 +246,7 @@ export const ProjectDetails = () => {
                  </div>
                )}
             </div>
-            <h3 className="text-3xl font-headline font-black text-primary mb-4">
+            <h3 className="text-2xl lg:text-3xl font-headline font-black text-primary mb-4 text-center">
               {project.isRental 
                 ? (lang === 'es' ? 'Tu Escapada Perfecta' : 'Your Perfect Getaway') 
                 : (lang === 'es' ? 'Inversión Inteligente' : 'Smart Investment')}
@@ -238,7 +265,7 @@ export const ProjectDetails = () => {
         <section className="bg-slate-50 border-t border-b border-slate-200 py-16 md:py-24 px-6 md:px-12">
           <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="flex flex-col justify-center">
-               <h2 className="text-4xl lg:text-5xl font-headline font-black text-primary mb-8 leading-tight">
+               <h2 className="text-3xl lg:text-5xl font-headline font-black text-primary mb-8 leading-tight">
                  {lang === 'es' ? 'Características Destacadas' : 'Key Features'}
                </h2>
                <div className="space-y-4 mb-10 w-full">
@@ -316,15 +343,15 @@ export const ProjectDetails = () => {
       <section className="bg-primary text-white py-20 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="flex flex-col justify-center items-start">
-             <h2 className="text-4xl lg:text-5xl font-headline font-black mb-8 leading-tight">
+             <h2 className="text-3xl lg:text-5xl font-headline font-black mb-8 leading-tight">
                {lang === 'es' ? '¿Estás Listo para Dar el Siguiente Paso?' : 'Are you ready to take the next step?'}
              </h2>
              <p className="text-xl opacity-90 mb-10 font-light max-w-lg">
                {lang === 'es' ? 'No dejes pasar la oportunidad de hacer de esta casa tu nuevo hogar. Completa el formulario de contacto o llámanos.' : 'Don\'t miss the opportunity to make this house your new home.'}
              </p>
-             <button className="bg-white text-primary px-10 py-5 rounded-xl font-headline font-extrabold text-lg shadow-xl hover:scale-105 transition-transform">
+             <a href={`tel:${siteData.contact.phone}`} className="bg-white text-primary px-10 py-5 rounded-xl font-headline font-extrabold text-lg shadow-xl hover:scale-105 transition-transform inline-block text-center">
                {lang === 'es' ? 'Llámanos Directamente' : 'Call Us Directly'}
-             </button>
+             </a>
           </div>
           <div className="hidden lg:block relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
              <img src={siteData.about.image} className="absolute inset-0 w-full h-full object-cover relative z-10" alt="Lifestyle" />

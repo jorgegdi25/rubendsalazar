@@ -1,7 +1,16 @@
+import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Contact = () => {
-  const { t: siteData } = useLanguage();
+  const { language, t: siteData } = useLanguage();
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate API call
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
 
   return (
     <section className="relative py-32 overflow-hidden" id="contact">
@@ -16,10 +25,10 @@ export const Contact = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="text-white">
-            <h2 className="font-headline font-black text-6xl lg:text-7xl tracking-tighter mb-10 leading-none">
+            <h2 className="font-headline font-black text-3xl md:text-5xl lg:text-7xl tracking-tighter mb-10 leading-none">
               {siteData.contactSection.title}
             </h2>
-            <p className="text-primary-fixed text-2xl font-light mb-12 opacity-80 leading-relaxed">
+            <p className="text-primary-fixed text-lg md:text-2xl font-light mb-12 opacity-80 leading-relaxed">
               {siteData.contactSection.description}
             </p>
             <div className="space-y-10">
@@ -46,30 +55,50 @@ export const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-3xl p-12 lg:p-16 shadow-2xl">
-            <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-              <div>
-                <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.fullName}</label>
-                <input className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.fullNamePlaceholder} type="text" />
+          <div className="bg-white rounded-3xl p-6 md:p-12 lg:p-16 shadow-2xl transition-all duration-500">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center text-center space-y-6 py-12 animate-in fade-in zoom-in duration-500">
+                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
+                  <span className="material-symbols-outlined text-green-600 text-5xl">check_circle</span>
+                </div>
+                <h3 className="font-headline font-black text-3xl text-primary uppercase tracking-tight">
+                  {siteData.ui.contactForm.successTitle}
+                </h3>
+                <p className="text-slate-500 text-xl font-light">
+                  {siteData.ui.contactForm.successMessage}
+                </p>
+                <button 
+                  onClick={() => setSubmitted(false)}
+                  className="text-primary font-headline font-bold uppercase tracking-widest text-sm hover:underline"
+                >
+                  {language === 'es' ? 'Enviar otro mensaje' : 'Send another message'}
+                </button>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            ) : (
+              <form className="space-y-8" onSubmit={handleSubmit}>
                 <div>
-                  <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.phone}</label>
-                  <input className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.phonePlaceholder} type="tel" />
+                  <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.fullName}</label>
+                  <input required className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.fullNamePlaceholder} type="text" />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.phone}</label>
+                    <input required className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.phonePlaceholder} type="tel" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.email}</label>
+                    <input required className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.emailPlaceholder} type="email" />
+                  </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.email}</label>
-                  <input className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors rounded-t-lg" placeholder={siteData.ui.contactForm.emailPlaceholder} type="email" />
+                  <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.message}</label>
+                  <textarea required className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors resize-none rounded-t-lg" placeholder={siteData.ui.contactForm.messagePlaceholder} rows={4}></textarea>
                 </div>
-              </div>
-              <div>
-                <label className="block text-sm font-headline font-black text-on-surface uppercase tracking-widest mb-3">{siteData.ui.contactForm.message}</label>
-                <textarea className="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:ring-0 focus:border-primary px-4 py-4 transition-colors resize-none rounded-t-lg" placeholder={siteData.ui.contactForm.messagePlaceholder} rows={4}></textarea>
-              </div>
-              <button className="w-full blue-gradient-btn text-on-primary py-6 rounded-2xl font-headline font-black text-xl uppercase tracking-widest shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
-                {siteData.ui.contactForm.submit}
-              </button>
-            </form>
+                <button type="submit" className="w-full blue-gradient-btn text-on-primary py-6 rounded-2xl font-headline font-black text-xl uppercase tracking-widest shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
+                  {siteData.ui.contactForm.submit}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

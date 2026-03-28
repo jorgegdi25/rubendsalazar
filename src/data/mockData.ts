@@ -120,6 +120,8 @@ export interface SiteData {
       message: string;
       messagePlaceholder: string;
       submit: string;
+      successTitle: string;
+      successMessage: string;
     };
     footer: {
       quickLinks: string;
@@ -392,7 +394,9 @@ const siteDataEN: SiteData = {
       emailPlaceholder: "your@email.com",
       message: "Project Message",
       messagePlaceholder: "Tell us about your project...",
-      submit: "Send Inquiry"
+      submit: "Send Inquiry",
+      successTitle: "Message Sent!",
+      successMessage: "Thank you for reaching out. We will get back to you soon."
     },
     footer: {
       quickLinks: "Quick Links",
@@ -615,7 +619,9 @@ const siteDataES: SiteData = {
       emailPlaceholder: "tu@correo.com",
       message: "Mensaje",
       messagePlaceholder: "Cuéntanos sobre tu necesidad...",
-      submit: "Enviar Consulta"
+      submit: "Enviar Consulta",
+      successTitle: "¡Mensaje Enviado!",
+      successMessage: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto."
     },
     footer: {
       quickLinks: "Enlaces Rápidos",

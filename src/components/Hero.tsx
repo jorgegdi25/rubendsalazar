@@ -36,7 +36,7 @@ export const Hero = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto w-full text-center">
         <div className="max-w-4xl mx-auto">
           <h1 
-            className="text-white font-headline font-black text-6xl md:text-8xl leading-[1] tracking-tighter mb-4 text-shadow-lg"
+            className="text-white font-headline font-black text-4xl md:text-6xl lg:text-8xl leading-[1] tracking-tighter mb-4 text-shadow-lg"
             dangerouslySetInnerHTML={{ __html: siteData.hero.title as string }}
           />
           <p className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-headline font-bold text-sm tracking-widest uppercase mb-8">
