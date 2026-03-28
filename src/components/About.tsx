@@ -30,7 +30,7 @@ export const About = () => {
             <h2 className="text-primary font-headline font-black text-3xl md:text-5xl lg:text-6xl tracking-tighter leading-[1.1]">
               {siteData.about.title}
             </h2>
-            <p className="text-on-surface-variant text-xl leading-relaxed font-light">
+            <p className="text-on-surface-variant text-xl leading-relaxed font-light whitespace-pre-line">
               {siteData.about.description}
             </p>
             <div className="grid gap-8">

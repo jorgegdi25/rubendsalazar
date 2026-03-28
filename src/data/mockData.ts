@@ -166,7 +166,7 @@ const siteDataEN: SiteData = {
   about: {
     tagline: "About Us",
     title: "Our company Ruben D Salazar, Inc.",
-    description: "We are a general contractor with licensed and insured in Florida (CBC#1253051) and are legally authorized to build new homes or complete interior or exterior renovations of any scope or size. Need a contractor to build your dream home? We would love to be part of turning your dreams into reality. We have spent the past 32 years building relationships with the community and trusted contractors.",
+    description: "We are a fully licensed and insured general contractor in the state of Florida (CBC#1253051), authorized to build new homes and to complete interior or exterior renovations of any size or scope.\n\nLooking for a contractor to bring your dream home to life? We would be honored to help turn your vision into reality.\n\nFor more than 32 years, we have built strong relationships with our community and with trusted trade partners, earning a reputation for quality, reliability, and integrity.",
     yearsExperience: "25",
     yearsText: "Years of Experience in Florida.",
     image: asset("/about.png"),
@@ -454,7 +454,7 @@ const siteDataES: SiteData = {
   about: {
     tagline: "Nosotros",
     title: "Nuestra compañía Ruben D Salazar, Inc.",
-    description: "Somos un contratista general con licencia y seguro en Florida (CBC#1253051) y estamos legalmente autorizados para construir nuevas casas o completar renovaciones interiores o exteriores de cualquier alcance o tamaño. ¿Necesita un contratista para construir su casa de ensueño? Nos encantaría ser parte de convertir sus sueños en realidad. Hemos pasado los últimos 32 años construyendo relaciones con la comunidad y contratistas de confianza.",
+    description: "Somos un contratista general totalmente licenciado y asegurado en el estado de la Florida (CBC#1253051), autorizados para construir casas nuevas y para completar renovaciones interiores o exteriores de cualquier tamaño o alcance.\n\n¿Busca un contratista para hacer realidad la casa de sus sueños? Sería un honor para nosotros ayudarle a convertir su visión en realidad.\n\nDurante más de 32 años, hemos construido relaciones sólidas con nuestra comunidad y socios comerciales de confianza, ganándonos una reputación de calidad, confiabilidad e integridad.",
     yearsExperience: "25",
     yearsText: "Años de Experiencia en Florida.",
     image: siteDataEN.about.image,
